@@ -1,0 +1,5 @@
+Optional environment variables.
+Do not commit real keys.
+
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-4o-mini

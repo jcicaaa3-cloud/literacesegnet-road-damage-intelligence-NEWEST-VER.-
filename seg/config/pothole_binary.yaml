@@ -1,0 +1,63 @@
+seed: 42
+device: cpu
+num_workers: 0
+save_dir: runs/literace_boundary_degradation
+
+data:
+ root: ../datasets/pothole_binary/processed
+ ignore_index: 255
+ class_names:
+  - background
+  - pothole
+
+model:
+ name: lite_race
+ num_classes: 2
+ use_aux: true
+ base_channels: 24
+ context_channels: 96
+ use_detail_branch: true
+ context_module: lite_aspp
+ liteaspp_rates: [1, 2, 4]
+ use_boundary_gate: true
+ fuse_boundary_logit: true
+
+train:
+ image_size: [192, 320]
+ batch_size: 4
+ epochs: 20
+ amp: false
+ base_lr: 0.001
+ weight_decay: 0.0001
+ grad_clip: 1.0
+ print_freq: 1
+ save_every: 1
+ early_stopping_patience: 6
+ boundary_width: 3
+ eval_mode: composite
+ lane_class_ids: []
+ pothole_class_ids: [1]
+ class_weights: [0.35, 0.65]
+ loss:
+  ce_weight: 1.0
+  dice_weight: 0.6
+  aux_weight: 0.2
+  boundary_weight: 0.05
+  focal_gamma: 1.5
+
+val:
+ batch_size: 2
+
+optimizer:
+ name: adamw
+
+scheduler:
+ name: poly
+ power: 0.9
+ min_lr: 0.000001
+
+infer:
+ overlay_alpha: 0.45
+ palette:
+  - [30, 30, 30]
+  - [255, 90, 0]

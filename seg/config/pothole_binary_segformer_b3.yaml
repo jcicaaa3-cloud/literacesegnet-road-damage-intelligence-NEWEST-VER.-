@@ -1,0 +1,60 @@
+seed: 42
+device: cpu
+num_workers: 0
+save_dir: runs/segformer_b3_pothole
+
+data:
+ root: ../datasets/pothole_binary/processed
+ ignore_index: 255
+ class_names:
+  - background
+  - pothole
+
+model:
+ # SegFormer-B3는 CNN을 대체하는 최종 모델이 아니라 Transformer 비교 baseline입니다.
+ name: segformer_b3
+ num_classes: 2
+ use_aux: false
+ variant: b3
+ pretrained: false
+ hf_model_name: nvidia/segformer-b3-finetuned-ade-512-512
+
+train:
+ image_size: [192, 320]
+ batch_size: 2
+ epochs: 20
+ amp: false
+ base_lr: 0.00006
+ weight_decay: 0.01
+ grad_clip: 1.0
+ print_freq: 1
+ save_every: 1
+ early_stopping_patience: 6
+ boundary_width: 3
+ eval_mode: composite
+ lane_class_ids: []
+ pothole_class_ids: [1]
+ class_weights: [0.35, 0.65]
+ loss:
+  ce_weight: 1.0
+  dice_weight: 0.6
+  aux_weight: 0.0
+  boundary_weight: 0.0
+  focal_gamma: 1.5
+
+val:
+ batch_size: 1
+
+optimizer:
+ name: adamw
+
+scheduler:
+ name: poly
+ power: 0.9
+ min_lr: 0.000001
+
+infer:
+ overlay_alpha: 0.45
+ palette:
+  - [30, 30, 30]
+  - [255, 90, 0]
