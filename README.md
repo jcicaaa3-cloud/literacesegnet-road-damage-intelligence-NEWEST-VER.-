@@ -3,7 +3,7 @@
 PyTorch 기반 도로 손상 세그멘테이션 프로젝트입니다. 
 직접 설계한 경량 CNN 모델 **LiteRaceSegNet**과 Transformer baseline **SegFormer-B3**를 분리해서 학습·추론·비교합니다.
 
-이 저장소의 목적은 단순 데모가 아니라, 취업 포트폴리오에서 아래 질문에 답할 수 있게 만드는 것입니다.
+이 저장소의 목적은 단순 데모가 아니라, 아래 질문에 답할 수 있게 만드는 것입니다.
 
 > SegFormer 같은 강한 baseline과 비교했을 때, 직접 설계한 경량 CNN이 모델 크기, CPU latency, GPU throughput, mask 품질 사이에서 어떤 trade-off를 보이는가?
 
