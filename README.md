@@ -1,3 +1,24 @@
+# 아카이브 안내
+
+이 저장소는 LiteRaceSegNet의 초기 포트폴리오/프로토타입 버전입니다.
+
+최신 LiteRaceSegNet-v7 coverage package는 아래 저장소에서 관리합니다.
+
+[LiteRaceSegNet-v7 coverage package](https://github.com/jcicaaa3-cloud/LiteRaceSegNet-v7-coverage-2026-MAY-12ver.-)
+
+본 저장소는 프로젝트 발전 과정과 이전 구조를 보존하기 위해 유지합니다.
+
+# Archive Notice
+
+This repository is an earlier portfolio/prototype version of LiteRaceSegNet.
+
+The newer LiteRaceSegNet-v7 coverage package is maintained separately here:
+
+[LiteRaceSegNet-v7 coverage package](https://github.com/jcicaaa3-cloud/LiteRaceSegNet-v7-coverage-2026-MAY-12ver.-)
+
+This repository is kept for historical reference and project development history.
+
+
 # LiteRaceSegNet: Road Damage Segmentation Portfolio
 
 PyTorch 기반 도로 손상 세그멘테이션 프로젝트입니다. 
